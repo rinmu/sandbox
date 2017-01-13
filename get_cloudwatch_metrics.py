@@ -1,11 +1,8 @@
 import boto3
 import datetime
 import sys
-import pprint
 
 elb_name = sys.argv[1]
-
-pp = pprint.PrettyPrinter(indent=4)
 
 begining_of_today = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
@@ -28,4 +25,5 @@ data_points = metrics['Datapoints']
 
 sorted_data_points = sorted(data_points, key=lambda x: x['Timestamp'])
 
-pp.pprint(sorted_data_points)
+for e in sorted_data_points:
+    print("%s, %d" % (e['Timestamp'].strftime('%Y/%m/%d'), e['Sum']))
