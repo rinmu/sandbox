@@ -21,7 +21,7 @@ def get_data_points(elb_name, metrics_name):
                 'Value': elb_name
             }
         ],
-        StartTime=begining_of_today - datetime.timedelta(days=7),
+        StartTime=begining_of_today - datetime.timedelta(days=20),
         EndTime=begining_of_today,
         Period=86400,
         Statistics=['Sum'])
